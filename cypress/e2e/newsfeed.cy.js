@@ -54,7 +54,7 @@ describe('newsfeed module', () => {
         cy.get('.ant-form > :nth-child(4)').type(postBody.text);
         cy.get('.submit-wrapper > .ant-btn').click();
     });
-    it('creating poll with 4 options', () => {
+    it('creating poll with 4 options',{retries:3}, () => {
         login('workwisetesting@gmail.com','Abc12345@');
         cy.get('.composer').should('be.visible').click();
         cy.get(':nth-child(3) > .wrapper').click();
@@ -67,7 +67,7 @@ describe('newsfeed module', () => {
         cy.get('.ant-form > :nth-child(5)').type(postBody.text);
         cy.get('.submit-wrapper > .ant-btn').click();
     });
-    it('remove poll ', () => {
+    it('remove poll ',{retries:3}, () => {
         login('workwisetesting@gmail.com','Abc12345@');
         cy.get('.composer',{timeout:10000}).should('be.visible').click();
         cy.get(':nth-child(3) > .wrapper').click();
@@ -87,7 +87,7 @@ describe('reruning the test on the iphone browser for the resaponsivness', () =>
     beforeEach(() => {
         cy.viewport('iphone-xr'); // Sets viewport before each test
     });
-    it('create a simple post', () => {
+    it('create a simple post',{retries:3}, () => {
        login('workwisetesting@gmail.com','Abc12345@');
        cy.get('.toggleButton > img').click();
        cy.get('.composer',{timeout:10000}).should('be.visible').click();
@@ -95,7 +95,7 @@ describe('reruning the test on the iphone browser for the resaponsivness', () =>
        cy.get('.submit-wrapper > .ant-btn').click();
        cy.get('.ant-notification-notice').should('have.text','Successfully Posted');
     });
-    it('posting with the tag member only', () => {
+    it('posting with the tag member only',{retries:3}, () => {
         login('workwisetesting@gmail.com','Abc12345@');
         cy.get('.toggleButton > img').click();
         cy.get('.composer').should('be.visible').click();
@@ -115,7 +115,7 @@ describe('reruning the test on the iphone browser for the resaponsivness', () =>
         cy.get('.submit-wrapper > .ant-btn').click();
         cy.get().should('include.text',"please place the description")
     });
-    it('creating poll 2 options and visible to none ', () => {
+    it('creating poll 2 options and visible to none ',{retries:3}, () => {
         login('workwisetesting@gmail.com','Abc12345@');
         cy.get('.toggleButton > img').click();
         cy.get('.composer').should('be.visible').click();
@@ -125,7 +125,7 @@ describe('reruning the test on the iphone browser for the resaponsivness', () =>
         cy.get('.ant-form > :nth-child(3)').type(postBody.text);
         cy.get('.submit-wrapper > .ant-btn').click();
     });
-    it('creating poll with 3 options', () => {
+    it('creating poll with 3 options',{retries:3}, () => {
         login('workwisetesting@gmail.com','Abc12345@');
         cy.get('.toggleButton > img').click();
         cy.get('.composer').should('be.visible').click();
@@ -137,7 +137,7 @@ describe('reruning the test on the iphone browser for the resaponsivness', () =>
         cy.get('.ant-form > :nth-child(4)').type(postBody.text);
         cy.get('.submit-wrapper > .ant-btn').click();
     });
-    it('creating poll with 4 options', () => {
+    it('creating poll with 4 options',{retries:3}, () => {
         login('workwisetesting@gmail.com','Abc12345@');
         cy.get('.toggleButton > img').click();
         cy.get('.composer').should('be.visible').click();

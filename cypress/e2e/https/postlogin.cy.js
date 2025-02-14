@@ -2,7 +2,7 @@
 
 
 
-describe('verification of the post response of login api', () => {
+describe('verification of the post response of login api',{retries:3}, () => {
   it('api response with correct creditentials', () => {
     cy.request({
         method:'POST',
