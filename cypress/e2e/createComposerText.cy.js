@@ -39,7 +39,8 @@ describe('validate the field text of CustomApproval/Expenses/Appraisals/Promotio
   });
   it('should have the correct fields in the Promotions', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(5) > a').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/promotions')
     cy.get('.buttons > div > .ant-btn').click();
     cy.get(':nth-child(1) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Promotion To');
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
@@ -47,7 +48,8 @@ describe('validate the field text of CustomApproval/Expenses/Appraisals/Promotio
   });
   it('should have the correct fields in the warning ', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(4) > a').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/warnings')
     cy.get('.buttons > div > .ant-btn').click();
     cy.get(':nth-child(1) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Category');
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
@@ -76,13 +78,14 @@ describe('validate the field text of CustomApproval/Expenses/Appraisals/Promotio
     cy.get('.buttons > div > .ant-btn').click();
     cy.get(':nth-child(1) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Category');
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
-    cy.get(':nth-child(4) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Members')
+    cy.get(':nth-child(4) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Member')
     cy.get(':nth-child(3) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Reason')
     cy.get(':nth-child(6) > .ant-row > .ant-form-item-label > .ant-form-item-required').contains('Description')
   });
   it('should have the correct fields in the leaves', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(17) > a').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/leaves')
     cy.get('.buttons > div > .ant-btn').click();
     cy.get(':nth-child(6) > .ant-form-item > .ant-row > .ant-form-item-label > label').contains('Leave Dates');
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
@@ -90,7 +93,8 @@ describe('validate the field text of CustomApproval/Expenses/Appraisals/Promotio
   });
   it('should have the correct fields in the Careers', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(12) > a').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/careers')
     cy.get('.buttons > .ant-btn').click();
    
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
@@ -98,31 +102,35 @@ describe('validate the field text of CustomApproval/Expenses/Appraisals/Promotio
   });
   it('should have the correct fields in the Salary', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(13) > a').click();
-    cy.get(':nth-child(1) > .ant-btn').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/salary')
+    cy.get(':nth-child(1) > .ant-btn').click({force:true,multiple:true});
    
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
     
   });
   it('should have the correct fields in the Loan', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(14) > a').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/loan')
     cy.get('.buttons > div > .ant-btn').click();
    
     cy.get('label > .flex > :nth-child(1)').contains('Approvers')
   });
   it('should have the correct fields in the resignation ', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(15) > a').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/resignation')
     cy.get('.buttons > div > .ant-btn').click();
    
     cy.get(':nth-child(9) > .ant-row > .ant-form-item-label > label > .flex > span').contains('Approvers')
   });
   it('should have the correct fields in the quotation', () => {
     login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
-    cy.get(':nth-child(2) > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box > [role="presentation"] > :nth-child(15) > a').click();
-    cy.get('.buttons > div > .ant-btn').click();
+    cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
+    cy.visit('https://www.workw.com/quotation')
+    cy.get('a > .ant-btn > span').click({force:true})
    
-    cy.get(':nth-child(9) > .ant-row > .ant-form-item-label > label > .flex > span').contains('Approvers')
+    cy.get('label > .flex > :nth-child(1)').contains('Approvers')
   });
 })

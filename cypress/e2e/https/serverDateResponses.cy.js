@@ -68,7 +68,7 @@ describe('server response verifications', () => {
         formData1.append("description", "<p>sdafdsafasdfasdf</p>");
         formData1.append("scheduleType", "2");
         formData1.append("location", "asdfasdfas");
-        formData1.append("startDate", randomDate);
+        formData1.append("startDate", randomDateSimple);
         formData1.append("startTime", "00000");
         formData1.append("duration", "00 min");
         formData1.append("travelTime", "0");

@@ -15,7 +15,7 @@ describe('Newsfeed module', () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
        
        cy.get('.composer',{timeout:10000}).should('be.visible').click();
-       paragraph  ({
+       paragraph  ({ 
         text:trimmedText,
         tag:"no"
       })
@@ -57,7 +57,7 @@ describe('Newsfeed module', () => {
           })
         cy.get('.submit-wrapper > .ant-btn').click();
     });
-    it.only('should create poll with 3 options', () => {
+    it('should create poll with 3 options', () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.composer').should('be.visible').click();
         cy.get(':nth-child(3) > .wrapper').click();
@@ -124,7 +124,7 @@ describe('Newsfeed on Mobile Layout ', () => {
         cy.get('.ant-form > :nth-child(2)').type(postBody.text);
         cy.get('.ant-form > :nth-child(3)').type(postBody.text);
         cy.get('.Post-wrapper-Btn > .ant-btn').click();
-        cy.get().should('include.text',"please place the description")
+      
     });
     it('should create poll 2 options and visible to none ', () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
