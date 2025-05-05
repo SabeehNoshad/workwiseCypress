@@ -191,7 +191,7 @@ describe('server response verifications', () => {
         formData.append("categoryId", "1");
         formData.append("headerId", "f30842fc-f5f3-4ab7-a7ab-25ac68b82358");
         formData.append("referenceType", "1");
-        formData.append("expenseDate", randomDateSimple);
+        formData.append("expenseDate", randomDate);
         formData.append("isReimbursable", "false");
         formData.append("description", randomName);
         formData.append("amount", "100");
@@ -216,7 +216,7 @@ describe('server response verifications', () => {
           try {
             const response = JSON.parse(xhr.responseText);
             expect(response.responseCode).to.eq(1001);
-            expect(response.data.expenseDate).to.eq(randomDateSimple);
+            expect(response.data.expenseDate).to.eq(randomDate);
             resolve();
           } catch (err) {
             reject(err);
