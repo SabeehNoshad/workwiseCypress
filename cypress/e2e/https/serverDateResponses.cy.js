@@ -216,7 +216,7 @@ describe('server response verifications', () => {
           try {
             const response = JSON.parse(xhr.responseText);
             expect(response.responseCode).to.eq(1001);
-            expect(response.data.expenseDate).to.eq(randomDate);
+            expect(response.data.expenseDate).to.eq(randomDateSimple);
             resolve();
           } catch (err) {
             reject(err);
