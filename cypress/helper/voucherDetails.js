@@ -4,7 +4,7 @@ function voucherDetailsDr(amount) {
     const narration = generateRandomText();
     const cheque = Math.random().toString(36).substring(2, 10); // Generates a random alphanumeric string
 
-    cy.get('#rc_select_1').type("test");
+    cy.get('#rc_select_1').click({force:true}).type("test");
     cy.get('.ant-select-tree-treenode:nth-child(3) .ant-select-tree-title').click();
     
     // Cheque
@@ -21,8 +21,8 @@ function voucherDetailsCr(amount) {
     const narration = generateRandomText();
     const cheque = Math.random().toString(36).substring(2, 10); // Generates a random alphanumeric string
 
-    cy.get('#rc_select_3').type("test");
-    cy.get('.ant-select-tree-treenode:nth-child(3) .ant-select-tree-title      ').click();
+    cy.get('#rc_select_3').click({force:true,multiple:true}).type("test");
+    cy.get('.ant-select-tree-treenode:nth-child(3) .ant-select-tree-title      ').click({multiple:true,force:true});
     
     // Cheque
     cy.get(':nth-child(2) > :nth-child(3) > input').type(cheque);

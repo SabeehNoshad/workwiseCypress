@@ -35,6 +35,7 @@ function client(subject,name,email,number){
   cy.get('#addQuotation_name').type(name);
   cy.get('#addQuotation_email').type(email);
   cy.get('.form-control').type(number);
+  
   cy.get('#addQuotation_quotationDate').click().type('2025-03-03');
   cy.get('#addQuotation_deliveryDate').click() .type('2025-05-01');
   cy.get('.ant-radio-wrapper:nth-child(1) .ant-radio-input').click();

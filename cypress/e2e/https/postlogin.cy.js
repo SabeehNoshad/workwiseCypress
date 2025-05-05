@@ -36,7 +36,7 @@ describe('verification of the post response of login api',{retries:3}, () => {
     it('dynamically generated emailwit out @ incorrect creditentials', () => {
         const responseBody = {
             email:Math.random.toString(5).substring(1)+"gmail.com",
-            password:"Abc12345@"
+            password:"Abcd1234@"
         }
         cy.request({
             method:"POST",
