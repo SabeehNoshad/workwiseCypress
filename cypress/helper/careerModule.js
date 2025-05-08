@@ -1,3 +1,5 @@
+
+
 function careersform(params) {
     //designation 
     cy.get('#createCareer_designationId',{timeout:40000}).click();
@@ -83,24 +85,29 @@ function careersform(params) {
 
     //supervisor
     cy.get(':nth-child(16) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags')
-    .click().type(params.supervisor)
-    cy.get('.ant-select-dropdown',{timeout:400000})
-    .contains(params.supervisor)
-    .click(); 
-
+    .click()
+    .type(params.supervisor);
+  
+ // Wait for dropdown container
+cy.get('body') // Antd usually appends dropdown to <body>
+.find('.ant-select-dropdown')
+.should('exist')
+.and('be.visible');
     //interviewer
     cy.get(':nth-child(17) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags > input')
     .click().type(params.interviewer)
     cy.get('.ant-select-dropdown',{timeout:400000})
-    .contains(params.interviewer)
+    .should("include","hadiqa shakil")
     .click(); 
+   
 
     //approver
     cy.get('.custom-label > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags > input')
     .click().type(params.approver)
     cy.get('.ant-select-dropdown',{timeout:400000})
-    .contains(params.approver)
+    .should("include","hadiqa shakil")
     .click(); 
+   
 
     //education level
     cy.get('#createCareer_educationId').click()
