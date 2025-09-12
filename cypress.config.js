@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = defineConfig({
+  projectId: 'ga2geq',
   e2e: {
     setupNodeEvents(on, config) {
       // ✅ Enable Allure reporting

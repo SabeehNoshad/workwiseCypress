@@ -20,7 +20,9 @@ describe('security test', () => {
           url: 'https://workw.com/workwapi/api/Employee/GetAllEmployeeShort?disableFilter=0&pageNo=1&pageSize=20&search=&boardMembers=false&agents=false',
           failOnStatusCode: false,
         }).then((res) => {
-          expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+          expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
+
         });
       });
 
@@ -31,6 +33,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
      
@@ -41,6 +45,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Custom Approval Module', () => {
@@ -50,6 +56,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Docs & Archive Module', () => {
@@ -59,6 +67,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Projects Module', () => {
@@ -68,6 +78,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Tasks Module', () => {
@@ -77,6 +89,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Contract Module', () => {
@@ -86,6 +100,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Loan Module', () => {
@@ -95,6 +111,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Salary Module', () => {
@@ -104,6 +122,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Leaves Module', () => {
@@ -113,6 +133,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Payrole Module', () => {
@@ -122,6 +144,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Requisition Module', () => {
@@ -131,6 +155,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For VoucherList Module', () => {
@@ -140,6 +166,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For ChartsOfAccount Module', () => {
@@ -149,6 +177,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
       it('should not leak data in preflight (OPTIONS) request For Assets List Module', () => {
@@ -158,6 +188,8 @@ describe('security test', () => {
           failOnStatusCode: false,
         }).then((res) => {
           expect(res.status).to.not.eq(200); // Ideally, should NOT return 200 with sensitive headers
+           expect([204, 403, 405]).to.include(res.status); // Ideally, should NOT return 200 with sensitive headers
+          expect(res.body).to.be.empty;
         });
       });
 

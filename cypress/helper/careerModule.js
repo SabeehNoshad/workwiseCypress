@@ -87,12 +87,15 @@ function careersform(params) {
     cy.get(':nth-child(16) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags')
     .click()
     .type(params.supervisor);
-  
+     cy.get('.ant-select-dropdown',{timeout:400000})
+    .should("include","hadiqa shakil")
+    .click({force:true}); 
  // Wait for dropdown container
-cy.get('body') // Antd usually appends dropdown to <body>
-.find('.ant-select-dropdown')
-.should('exist')
-.and('be.visible');
+// cy.get('body') // Antd usually appends dropdown to <body>
+// .find('.ant-select-dropdown')
+// .should('exist')
+// .and('be.visible');
+
     //interviewer
     cy.get(':nth-child(17) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags > input')
     .click().type(params.interviewer)
