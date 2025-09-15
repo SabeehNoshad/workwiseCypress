@@ -2,6 +2,7 @@ const { login } = require("../helper/login");
 const {careersform} = require("../helper/careerModule")
 const {randomNumber,randomDateSimple} = require("../helper/taskCreate")
 
+
 describe('Careers module', () => {
     it('creation of career',{retries:1}, () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
