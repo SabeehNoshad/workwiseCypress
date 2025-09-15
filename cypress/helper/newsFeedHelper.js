@@ -9,6 +9,7 @@ function paragraph(params) {
             .should('be.visible')
             .click({ force: true });
     } else if (params.tag === 'poll') {
+        cy.get(':nth-child(3) > .wrapper > span').should('be.visible').click();
         switch (params.number) {
             case "2":
                 cy.get('.ant-form > :nth-child(2)').type("option 1");
