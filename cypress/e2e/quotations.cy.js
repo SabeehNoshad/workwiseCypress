@@ -69,7 +69,7 @@ describe('Quotation ', () => {
           });
         cy.url().should('eq', 'https://www.workw.com/quotation/create');
         cy.get('#addQuotation_subject').should('exist').and('be.visible');
-        cy.get('label > .flex > :nth-child(1)').should('be.visible').and('have.text','*Approval')
+        cy.get('label > .flex > :nth-child(1)').should('be.visible').and('have.text','*Approvers&nbsp')
         cy.get('.ant-form-item-control-input-content > .ant-btn').should('be.visible').click();
         cy.get(".ant-message-custom-content > span:nth-child(2)").should('be.visible').and('include.text','approver required')
         

@@ -11,7 +11,7 @@ describe('testing the urls of the Main Menu', () => {
         
         return false;
       });
-    it('should have the proper data against each URL ', () => {
+    it('should have the proper data against schedule messenger mailbox ', () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
         routing({
