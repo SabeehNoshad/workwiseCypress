@@ -2,12 +2,21 @@ const { defineConfig } = require("cypress");
 const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 const fs = require('fs');
 const path = require('path');
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const createEsbuildPlugin =
+  require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
+const addCucumberPreprocessorPlugin =
+  require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
+
 
 module.exports = defineConfig({
+  projectId: 'ga2geq',
   e2e: {
     setupNodeEvents(on, config) {
       // ✅ Enable Allure reporting
       allureWriter(on, config);
+
+      
 
       // ✅ Add custom logError task for catching app exceptions
       on('task', {

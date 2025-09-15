@@ -9,7 +9,7 @@ describe('verification of the post response of login api',{retries:3}, () => {
         url:'https://workw.com/authapi/api/login',
         body:{
             email:"sabeeh@miletap.com",
-            password:"Naase1992@"
+            password:"Naase630630@"
         }
     }).then((response)=>{
         expect(response.status).to.eq(200);

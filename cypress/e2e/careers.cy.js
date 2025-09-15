@@ -2,6 +2,7 @@ const { login } = require("../helper/login");
 const {careersform} = require("../helper/careerModule")
 const {randomNumber,randomDateSimple} = require("../helper/taskCreate")
 
+
 describe('Careers module', () => {
     it('creation of career',{retries:1}, () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
@@ -9,8 +10,8 @@ describe('Careers module', () => {
         cy.visit('https://www.workw.com/careers');
         cy.get('.buttons > .ant-btn').should("be.visible").click();
         careersform ({
-            designation : 'Chief Executive Officer',
-            grades: "Manager",
+            designation : '4',
+            grades: "Office Assistant",
             salarylo: randomNumber,
             salaryup: randomNumber,
             language: ["english" , "urdu" , "czech" , "french" , "spanish"],
@@ -23,9 +24,9 @@ describe('Careers module', () => {
             leaves: "30",
             department: "Admin",
             city: "Karachi",
-            supervisor:"hadiqa",
-            interviewer: "hadiqa",
-            approver: "hadiqa",
+            supervisor:"hadiqa shakil",
+            interviewer: "hadiqa shakil",
+            approver: "hadiqa shakil",
             education: "Bechlors",
             career: "Mid Level",
             enddate : randomDateSimple
