@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/YourUsername/workwiseCypress.git'
+                git branch: 'master', url: 'https://github.com/SabeehNoshad/workwiseCypress.git'
             }
         }
 
