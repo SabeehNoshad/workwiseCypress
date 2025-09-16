@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node1' // Must match NodeJS installation in Jenkins
+        nodejs 'Node17' // Must match NodeJS installation in Jenkins
     }
 
     stages {
