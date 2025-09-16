@@ -2,13 +2,17 @@ pipeline {
     agent any
 
     tools {
-        nodejs "Node16"
+        nodejs 'Node16' // Must match NodeJS installation in Jenkins
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/YourUsername/workwiseCypress.git'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    userRemoteConfigs: [[url: 'https://github.com/YourUsername/workwiseCypress.git']]
+                ])
             }
         }
 
@@ -26,11 +30,14 @@ pipeline {
 
         stage('Publish Allure Report') {
             steps {
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    results: [[path: 'allure-results']]
-                ])
+                script {
+                    // Ensure this method is approved in Script Approval
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        results: [[path: 'allure-results']]
+                    ])
+                }
             }
         }
     }
