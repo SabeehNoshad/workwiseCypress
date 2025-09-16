@@ -18,3 +18,10 @@ build/
 .DS_Store
 Thumbs.db
  
+ # Cypress output
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/reports/
+allure-results/
+allure-report/
