@@ -16,13 +16,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'
+                bat 'npm ci'
             }
         }
 
         stage('Run Cypress Tests') {
             steps {
-                sh 'npx cypress run --env allure=true'
+                bat 'npx cypress run --env allure=true'
             }
         }
 
