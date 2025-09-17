@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    // tools {
-    //     nodejs 'Node17' 
-    // }
+   
 
     stages {
         stage('Checkout') {
@@ -11,7 +9,7 @@ pipeline {
                 checkout([
                     $class: 'GitSCM',
                     branches: [[name: '*/master']],
-                    userRemoteConfigs: [[url: 'https://github.com/YourUsername/workwiseCypress.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/SabeehNoshad/workwiseCypress.git']]
                 ])
             }
         }
