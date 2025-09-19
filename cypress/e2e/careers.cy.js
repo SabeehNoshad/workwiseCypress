@@ -11,7 +11,7 @@ describe('Careers module', () => {
         cy.get('.buttons > .ant-btn').should("be.visible").click();
         careersform ({
             designation : '4',
-            grades: "Office Assistant",
+            grades: "Director",
             salarylo: randomNumber,
             salaryup: randomNumber,
             language: ["english" , "urdu" , "czech" , "french" , "spanish"],
@@ -27,10 +27,15 @@ describe('Careers module', () => {
             supervisor:"hadiqa shakil",
             interviewer: "hadiqa shakil",
             approver: "hadiqa shakil",
-            education: "Bechlors",
+            education: "Graduate",
             career: "Mid Level",
             enddate : randomDateSimple
         })
-        cy.get('.ant-form-item-control-input-content > .ant-btn').click()
+       cy.get('.ant-form-item-control-input-content > .ant-btn').click()
+       cy.get('.ant-form-item-control-input-content > .ant-btn').click()
+
+         cy.get('.ant-notification-notice')
+         .should('be.visible')
+         .should('have.text','Successfully Posted');
     });
 });

@@ -53,15 +53,13 @@ function careersform(params) {
     .click(); 
 
     //certificate
-    cy.get(':nth-child(11) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-wrap > .ant-select-selection-overflow')
-    .click()
-    if(params.certificate && params.certificate.lenght > 0 ){
-        params.certificate.forEach((certificate)=>{
-            cy.get('.ant-select-dropdown')
-            .contains(params.certificate)
-            .click(); 
-        })
-    }
+  cy.get(':nth-child(11) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-wrap > .ant-select-selection-overflow')
+  .click()
+     params.certificate.forEach(certificate => {
+      cy.get(':nth-child(11) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-wrap > .ant-select-selection-overflow')
+       .type(`${certificate}{enter}`)
+       .type(`{enter}`);
+    })
     // travel requirment
     cy.get('#createCareer_travelRequirements').click()
     cy.get('.ant-select-dropdown')
@@ -87,8 +85,9 @@ function careersform(params) {
     cy.get(':nth-child(16) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags')
     .click()
     .type(params.supervisor);
-     cy.get('.ant-select-dropdown',{timeout:400000})
-    .should("include","hadiqa shakil")
+     cy.get(".sc-iBdnpw.bHzdoQ.select-box-popup",{timeout:2000})
+    
+    .contains(params.supervisor)
     .click({force:true}); 
  // Wait for dropdown container
 // cy.get('body') // Antd usually appends dropdown to <body>
@@ -99,17 +98,19 @@ function careersform(params) {
     //interviewer
     cy.get(':nth-child(17) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags > input')
     .click().type(params.interviewer)
-    cy.get('.ant-select-dropdown',{timeout:400000})
-    .should("include","hadiqa shakil")
-    .click(); 
+    cy.get(".sc-iBdnpw.bHzdoQ.select-box-popup",{timeout:2000})
+    
+    .contains(params.supervisor)
+    .click({force:true});  
    
 
     //approver
     cy.get('.custom-label > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .tags > input')
     .click().type(params.approver)
-    cy.get('.ant-select-dropdown',{timeout:400000})
-    .should("include","hadiqa shakil")
-    .click(); 
+     cy.get(".sc-iBdnpw.bHzdoQ.select-box-popup",{timeout:2000})
+    
+    .contains(params.supervisor)
+    .click({force:true}); 
    
 
     //education level
@@ -127,5 +128,6 @@ function careersform(params) {
     // end date
     cy.get('#createCareer_endDate').type(params.enddate)
 
+    
 }
 module.exports = {careersform}
