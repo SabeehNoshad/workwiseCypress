@@ -67,17 +67,18 @@ describe('chart of acounts use cases',{retries:0}, () => {
           //  .should('exist')
             .scrollIntoView()
               .should('be.visible')
-              .click({ force: true })
+              .click({ force: true , multiple:true})
               .type('SM')     
 
         // Ensure the dropdown option appears
         cy.get('.ant-select-tree-node-content-wrapper-normal > .ant-select-tree-title')
         .should('exist')
           .should('be.visible')
-          .click({ force: true });
+          .first()
+          .click({ force: true, multiple:true });
 
         // Click the submit button
-        cy.get('.ant-btn').click();
+        cy.get('.ant-btn',{timeout:5000}).click({multiple:true});
 
         // Assert the error message appears
         cy.get('.ant-message-custom-content > :nth-child(2)', {timeout: 10000})
@@ -167,7 +168,7 @@ describe('Chart of Accounts Update suit ', () => {
       .first()
       .should('be.visible')
       .clear()
-      .click({force:true})
+      .click({force:true,multiple:true})
       .type(randomName);
       cy.get('.min-w-max',{timeout:50000}).should('contain.text',randomName);
 

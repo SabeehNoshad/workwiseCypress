@@ -4,7 +4,34 @@ const {randomNumber,randomDateSimple} = require("../helper/taskCreate")
 
 
 describe('Careers module', () => {
+  
+//     beforeEach(() => {
+//   // 1. Grant geolocation permission for your app’s origin
+//   cy.wrap(null).then(() => {
+//     Cypress.automation("remote:debugger:protocol", {
+//       command: "Browser.grantPermissions",
+//       params: {
+//         permissions: ["geolocation"],
+//         origin: "https://your-app-domain.com", // 👈 replace with your app’s URL
+//       },
+//     });
+//   });
+
+//   // 2. Override location with fake lat/lon
+//   cy.wrap(null).then(() => {
+//     Cypress.automation("remote:debugger:protocol", {
+//       command: "Emulation.setGeolocationOverride",
+//       params: {
+//         latitude: 37.7749,      // 👈 fake lat
+//         longitude: -122.4194,   // 👈 fake lon
+//         accuracy: 100
+//       },
+//     });
+//   });
+// });
+
     it('creation of career',{retries:1}, () => {
+        
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
         cy.visit('https://www.workw.com/careers');
