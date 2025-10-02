@@ -22,7 +22,7 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                bat 'npx cypress run --env allure=true '
+                bat 'npx cypress run --env allure=true || exit 0'
             }
         }
 

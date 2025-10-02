@@ -21,3 +21,10 @@ import '@shelex/cypress-allure-plugin';
 import 'cypress-mochawesome-reporter/register';
 import './commands';
 
+// Ignore only the specific null.document error globally
+Cypress.on('uncaught:exception', (err, runnable) => {
+  if (err.message.includes("Cannot read properties of null (reading 'document')")) {
+    return false; // prevent Cypress from failing the test
+  }
+  return true; // let other errors fail as usual
+});

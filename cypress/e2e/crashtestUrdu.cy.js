@@ -3,6 +3,8 @@ const {routing} = require('../helper/routing')
 
 describe("crashtest for the modules against each URL for the Language choosed",()=>{
     it('should display the contents against each URL in Urdu', () => {
+     
+
            login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible');
         cy.get('.userDetails__footer > img').click();
@@ -22,13 +24,15 @@ describe("crashtest for the modules against each URL for the Language choosed",(
         
     });
 })
-it('should display the content in German against each url',()=>{
+it('should display the content in turkish ',()=>{
+   
+
             login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible');
         cy.get('.userDetails__footer > img').click();
         cy.get('.dropDown > :nth-child(2) > .ant-collapse-item > .ant-collapse-header > .ant-collapse-expand-icon').click();
-        //selecting German
-        cy.get('.ant-collapse-content-box > .list > :nth-child(2)').click()
+        //selecting Turkish
+       cy.get('.ant-collapse-content-box > .list > :nth-child(5)').click()
 
 
 
@@ -41,5 +45,15 @@ it('should display the content in German against each url',()=>{
             ]
         
     });
+})
+it('should display the content in english',()=>{
+   
+
+            login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
+        cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible');
+        cy.get('.userDetails__footer > img').click();
+        cy.get('.dropDown > :nth-child(2) > .ant-collapse-item > .ant-collapse-header > .ant-collapse-expand-icon').click();
+        //selecting German
+        cy.get('.ant-collapse-content-box > .list > :nth-child(1)').click()
 })
 })
