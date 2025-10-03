@@ -32,7 +32,7 @@ pipeline {
         bat 'npx allure open allure-report'
     }
 }
-
+    }
     post {
         always {
             archiveArtifacts artifacts: 'cypress/videos/**/*.mp4, cypress/screenshots/**/*.png', allowEmptyArchive: true
