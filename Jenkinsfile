@@ -22,13 +22,17 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --env allure=true --headless || exit 0'
+                     // Clean old allure results first
+                  bat 'rmdir /s /q allure-results || exit 0'
+                  bat 'mkdir allure-results'
+                     bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --env allure=true --headless || exit 0'
             }
         }
 
         stage('Publish Allure Report') {
             steps {
-                
+                  bat 'allure generate allure-results --clean -o allure-report'
+                  bat 'allure open allure-report'
                 script {
                     // Ensure this method is approved in Script Approval
                     allure([

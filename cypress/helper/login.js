@@ -2,7 +2,7 @@ const { main } = require("../locators/mainLocators")
 
   function login(username,password){
     
-    cy.visit("https://www.workw.com", {
+    cy.visit("https://www.workw.com",{timeout:50000}, {
   onBeforeLoad(win) {
     cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cb) => {
       return cb({
