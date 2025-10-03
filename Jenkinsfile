@@ -32,7 +32,7 @@ pipeline {
         stage('Publish Allure Report') {
             steps {
                   bat 'allure generate allure-results --clean -o allure-report'
-                  bat 'allure open allure-report'
+               //   bat 'allure open allure-report'
                 script {
                     // Ensure this method is approved in Script Approval
                     allure([
