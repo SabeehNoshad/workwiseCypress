@@ -20,7 +20,7 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                // Added flags to avoid WebGL issues in CI
+                // Cypress headless with flags to avoid WebGL issues
                 bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --headless --no-sandbox --disable-gpu --env allure=true || exit 0'
             }
         }
@@ -33,12 +33,13 @@ pipeline {
             }
         }
 
-        stage('Publish Allure Report') {
-            steps {
-                // Optional: You can use Jenkins Allure plugin to publish
-                // allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
-            }
-        }
+        // Optional: Publish Allure Reports via plugin
+        // Remove if you don’t have plugin configured
+        // stage('Publish Allure Report') {
+        //     steps {
+        //         allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+        //     }
+        // }
     }
 
     post {
