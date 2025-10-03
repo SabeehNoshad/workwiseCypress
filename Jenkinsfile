@@ -28,6 +28,7 @@ pipeline {
 
         stage('Publish Allure Report') {
             steps {
+                 bat 'npx allure generate allure-results --clean -o allure-report'
                 script {
                     // Ensure this method is approved in Script Approval
                     allure([
