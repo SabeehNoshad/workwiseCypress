@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+   
+
     stages {
         stage('Checkout') {
             steps {
@@ -20,14 +22,20 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --headless --env allure=true || exit 0'
+                bat 'npx cypress run --env allure=true || exit 0'
             }
         }
 
-        stage('Generate Allure Report') {
+        stage('Publish Allure Report') {
             steps {
-                dir("${WORKSPACE}") {
-                    bat 'npx allure generate allure-results --clean -o allure-report'
+                
+                script {
+                    // Ensure this method is approved in Script Approval
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        results: [[path: 'allure-results']]
+                    ])
                 }
             }
         }
