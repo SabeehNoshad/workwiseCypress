@@ -35,7 +35,7 @@ pipeline {
         }
     }
 }
-    }
+       }}
     post {
         always {
             archiveArtifacts artifacts: 'cypress/videos/**/*.mp4, cypress/screenshots/**/*.png', allowEmptyArchive: true
