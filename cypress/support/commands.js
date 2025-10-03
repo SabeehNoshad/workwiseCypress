@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('getErrorMessage', (selector = '.ant-notification-notice-description') => {
+  return cy.get(selector).invoke('text').then((text) => {
+    const errorMessage = text.trim();
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+
+    // ✅ wrap ensures Cypress handles it asynchronously
+    return cy.wrap(errorMessage);
+  });
+});

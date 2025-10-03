@@ -61,6 +61,12 @@ describe('Careers module', () => {
        cy.get('.ant-form-item-control-input-content > .ant-btn').click()
        cy.get('.ant-form-item-control-input-content > .ant-btn').click()
 
+          //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
+
          cy.get('.ant-notification-notice')
          .should('be.visible')
          .should('have.text','Successfully Posted');

@@ -41,6 +41,11 @@ describe('Quotation ', () => {
         cy.get('.tags > input').click().type('hadiqa');
         cy.get('.sc-bBkKde > div').contains('hadiqa shakil').click({force:true})
         cy.get('.ant-form-item-control-input-content > .ant-btn').should('be.visible').click();
+           //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
         cy.get('.ant-notification-notice').should('include.text','Quotation Created Successfully')
         
 

@@ -125,6 +125,12 @@ describe('Rosters', () => {
                }
                return true; // Let Cypress fail for other errors
              });
+
+                //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
          
             cy.get('.ant-notification-notice').should('have.text','Successfully Created');
      });

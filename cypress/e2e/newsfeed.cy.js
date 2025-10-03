@@ -31,6 +31,12 @@ describe('Newsfeed module', () => {
           })
       
         cy.get('.submit-wrapper > .ant-btn').click();
+
+           //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
         cy.get('.ant-notification-notice').should('have.text','Successfully Posted');
     });
     it('should creating simple pole without the description// no error and loader is shown ', () => {
@@ -107,6 +113,12 @@ describe('Newsfeed on Mobile Layout ', () => {
        cy.get('.composer',{timeout:10000}).should('be.visible').click();
        cy.get('.ant-form > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)').type(postBody.text);
        cy.get('.Post-wrapper-Btn > .ant-btn').click();
+
+          //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
        cy.get('.ant-notification-notice').should('have.text','Successfully Posted');
     });
     it('should create posting with the tag member only', () => {
@@ -115,6 +127,12 @@ describe('Newsfeed on Mobile Layout ', () => {
         cy.get('.ant-form > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)').type('this is @hadiqa shakil ');
        // cy.get('.ant-mentions-dropdown-menu-item-active .sc-gjLLEI').click();
        cy.get('.Post-wrapper-Btn > .ant-btn').click();
+
+          //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
         cy.get('.ant-notification-notice').should('have.text','Successfully Posted');
     });
     it('should create simple pole without the description', () => {

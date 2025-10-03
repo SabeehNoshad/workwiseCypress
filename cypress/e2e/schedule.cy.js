@@ -26,6 +26,13 @@ it('should create a simple schedule', () => {
         venue:"workwise",
                  })
     cy.get(':nth-child(13) > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-btn').click()
+
+       //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
+
     cy.get('div.ant-notification-notice-with-icon').should('have.text','Schedule Created Successfully');
 });
 it('should create schedule for the type appointments', () => {
@@ -43,6 +50,14 @@ it('should create schedule for the type appointments', () => {
         venue:"workwise",
                  })
     cy.get(':nth-child(13) > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-btn').click()
+   
+      //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
+   
+   
     cy.get('div.ant-notification-notice-with-icon').should('have.text','Schedule Created Successfully');
 });
 it.only('should create the schedule for the board meetings', () => {
@@ -60,6 +75,13 @@ it.only('should create the schedule for the board meetings', () => {
         venue:"workwise",
                  })
     cy.get(':nth-child(13) > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-btn').click()
+  
+    //checking and login the error from the system the method is in the / support/command.js
+    cy.getErrorMessage().then((errorMessage) => {
+    cy.log("Error Message: " + errorMessage);
+    console.log("Error Message:", errorMessage);
+    })
+   
     cy.get('div.ant-notification-notice-with-icon').should('have.text','Schedule Created Successfully');
 });
 })
