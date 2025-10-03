@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-   
-
     stages {
         stage('Checkout') {
             steps {
@@ -22,23 +20,23 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-               bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --env allure=true || exit 0'
+                bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --env allure=true || exit 0'
             }
         }
 
-       stage('Publish Allure Report') {
-  stage('Generate Allure Report') {
-    steps {
-        dir("${WORKSPACE}") {
-            bat 'npx allure generate allure-results --clean -o allure-report'
+        stage('Generate Allure Report') {
+            steps {
+                dir("${WORKSPACE}") {
+                    bat 'npx allure generate allure-results --clean -o allure-report'
+                }
+            }
         }
     }
-}
-    }
+
     post {
         always {
             archiveArtifacts artifacts: 'cypress/videos/**/*.mp4, cypress/screenshots/**/*.png', allowEmptyArchive: true
             cleanWs()
         }
     }
-}}
+}
