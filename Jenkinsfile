@@ -31,7 +31,9 @@ pipeline {
 
         stage('Publish Allure Report') {
             steps {
-                  bat 'allure generate allure-results --clean -o allure-report'
+                bat 'npx allure generate --clean'
+                bat 'npx allure serve allure-results'
+               //   bat 'allure generate allure-results --clean -o allure-report'
                //   bat 'allure open allure-report'
                 script {
                     // Ensure this method is approved in Script Approval
