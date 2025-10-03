@@ -20,7 +20,7 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --env allure=true || exit 0'
+                bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --headless --env allure=true || exit 0'
             }
         }
 
