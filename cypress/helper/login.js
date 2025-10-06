@@ -25,7 +25,7 @@ const { main } = require("../locators/mainLocators")
 //     cy.log("allow button not found, moving on...");
 //   }
 // });
-     cy.get('.btn > .w-full',{timeout:50000}).click({multiple:true})
+     cy.get('.btn > .w-full',{timeout:50000}).should('be.visible').should('not.be.disabled').click({multiple:true})
    // cy.get('.bg-gray-500').click();
 }
 module.exports = {login}
