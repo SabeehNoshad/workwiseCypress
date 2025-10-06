@@ -25,7 +25,8 @@ pipeline {
                      // Clean old allure results first
                   bat 'rmdir /s /q allure-results || exit 0'
                   bat 'mkdir allure-results'
-                     bat 'npx cypress run --spec "cypress/e2e/quickTask.cy.js" --env allure=true --headless --reporter mocha-allure-reporter || exit 0'
+                     bat 'npx cypress run  --env allure=true --headless --reporter mocha-allure-reporter || exit 0'
+                     //--spec "cypress/e2e/quickTask.cy.js"
             }
         }
 
