@@ -25,14 +25,14 @@ pipeline {
                      // Clean old allure results first
                   bat 'rmdir /s /q allure-results || exit 0'
                   bat 'mkdir allure-results'
-                     bat 'npx cypress run --spec "cypress/e2e/task.cy.js" --env allure=true --headless || exit 0'
+                     bat 'npx cypress run --spec "cypress/e2e/quickTask.cy.js" --env allure=true --headless || exit 0'
             }
         }
 
         stage('Publish Allure Report') {
             steps {
               //  bat 'npx allure generate --clean'
-                 bat 'npx allure generate allure-results --clean -o allure-report'
+                 bat 'npx allure generate allure-results --clean '
                //   bat 'allure generate allure-results --clean -o allure-report'
                //   bat 'allure open allure-report'
                 script {
@@ -50,7 +50,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'cypress/videos/**/*.mp4, cypress/screenshots/**/*.png', allowEmptyArchive: true
-            cleanWs()
+            // cleanWs()
         }
     }
 }
