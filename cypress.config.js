@@ -30,11 +30,20 @@ module.exports = defineConfig({
         if (browser.family === "chromium" && browser.name === "chrome") {
           // 🚀 Fresh temporary profile (prevents Chrome reusing old user profile)
           // launchOptions.args.push("--user-data-dir=/tmp/cypress-temp-profile");
-          // launchOptions.args.push("--profile-directory=Default");
+          
 
           // Optional incognito
-          //launchOptions.args.push("--incognito");
-
+          launchOptions.args.push("--incognito");
+          launchOptions.args.push(
+            '--use-fake-ui-for-media-stream',    // auto-allow camera/mic
+            '--use-fake-device-for-media-stream',
+            '--enable-geolocation',              // enable location
+            '--use-fake-ui-for-media-stream',
+            '--no-sandbox',
+            '--disable-gpu',
+            '--disable-dev-shm-usage',
+            '--lang=en'                          // set Chrome language to English
+          )
 
           
 
