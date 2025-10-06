@@ -3,18 +3,27 @@ const { main } = require("../locators/mainLocators")
   function login(username,password){
     
     cy.visit("https://www.workw.com",{timeout:50000}, {
-  onBeforeLoad(win) {
-    cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cb) => {
-      return cb({
-        coords: {
-          latitude: 37.7749,
-          longitude: -122.4194,
-          accuracy: 100,
-        },
-      });
+
+   onBeforeLoad(win) {
+    // Geolocation stubs
+    cy.stub(win.navigator.geolocation, 'getCurrentPosition').callsFake((cb) => {
+      cb({ coords: { latitude: 37.7749, longitude: -122.4194 } });
     });
-  },
+    cy.stub(win.navigator.geolocation, 'watchPosition').callsFake((cb) => {
+      cb({ coords: { latitude: 37.7749, longitude: -122.4194 } });
+    });
+
+    // Permissions stub
+    if (!win.navigator.permissions) win.navigator.permissions = {};
+    cy.stub(win.navigator.permissions, 'query').callsFake(({ name }) => {
+      if (name === 'geolocation') {
+        return Promise.resolve({ state: 'granted' });
+      }
+      return Promise.resolve({ state: 'prompt' });
+    });
+   }
 });
+  
     cy.get(':nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-input-affix-wrapper > .ant-input',{timeout:10000}).should('be.visible').type(username);
     cy.get(':nth-child(2) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-input-affix-wrapper > .ant-input',{timeout:10000}).should('be.visible').type(password);
     

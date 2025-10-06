@@ -5,7 +5,7 @@ describe('Quick Task Creation', () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
          cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
     cy.visit('https://www.workw.com/tasks')
-    cy.get('#dropdown-container > .ant-btn').click()
+    cy.get('#dropdown-container > .ant-btn')
     .type("cypress test{enter}")
     })
  })

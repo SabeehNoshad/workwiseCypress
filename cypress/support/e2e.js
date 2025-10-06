@@ -28,3 +28,25 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   }
   return true; // let other errors fail as usual
 });
+Cypress.on('window:before:load', (win) => {
+  if (!win.navigator.geolocation) {
+    win.navigator.geolocation = {};
+  }
+
+  // Mock getCurrentPosition
+  cy.stub(win.navigator.geolocation, 'getCurrentPosition').callsFake((cb) => {
+    cb({ coords: { latitude: 37.7749, longitude: -122.4194 } });
+  });
+
+  // Mock watchPosition
+  cy.stub(win.navigator.geolocation, 'watchPosition').callsFake((cb) => {
+    cb({ coords: { latitude: 37.7749, longitude: -122.4194 } });
+  });
+
+  // Mock permissions query
+  if (!win.navigator.permissions) win.navigator.permissions = {};
+  cy.stub(win.navigator.permissions, 'query').callsFake(({ name }) => {
+    if (name === 'geolocation') return Promise.resolve({ state: 'granted' });
+    return Promise.resolve({ state: 'prompt' });
+  });
+});
