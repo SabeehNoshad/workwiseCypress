@@ -30,11 +30,13 @@ describe('Careers module', () => {
 //   });
 // });
 
-    it('creation of career',{retries:1}, () => {
+    it('creation of career',{retries:0}, () => {
         
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
-        cy.visit('https://www.workw.com/careers');
+       
+        cy.visit('https://www.workw.com/careers',{timeout:20000});
+       
         cy.get('.buttons > .ant-btn').should("be.visible").click();
         careersform ({
             designation : '4',

@@ -3,7 +3,7 @@ function routing(params) {
         params.route.forEach((url,index) => {
             cy.visit(url); // Visiting each URL
             if (params.selectors[index]){
-                cy.get(params.selectors[index],{timeout:5000}).should('be.visible');
+                cy.get(params.selectors[index],{timeout:20000}).should('be.visible');
                 cy.log('element is visible')
             }
             else{

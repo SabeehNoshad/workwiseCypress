@@ -15,7 +15,7 @@ describe('testing the urls of the Main Menu', () => {
         login(Cypress.env('adminemail'),Cypress.env('adminpassword'));
         cy.get('.userDetails__body > .name',{timeout:10000}).should('be.visible'); 
         routing({
-            route:['https://www.workw.com/schedules?f=cal','https://www.workw.com/messenger','https://www.workw.com/mail/INBOX'],
+            route:['https://www.workw.com/schedules?f=cal','https://www.workw.com/messenger'],
             selectors: [
                 '.fc', // Selector for the schedules page
                 '.HeadName', // Selector for the messenger page

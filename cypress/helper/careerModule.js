@@ -76,7 +76,7 @@ function careersform(params) {
     .click(); 
 
     //city
-    cy.get('#rc_select_25')
+    cy.get('#rc_select_25',{timeout:10000})
         .type(params.city)
        cy.get('div.flex.items-center.gap-1',{timeout:20000}).should('be.visible').click({multiple:true,force:true})
 
